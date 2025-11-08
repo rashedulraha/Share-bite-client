@@ -7,7 +7,7 @@ import Container from "../Components/Responsive/Container";
 const Register = () => {
   return (
     <Container>
-      <div className="md:w-1/2 bg-base-100   mx-auto border border-secondary/30 rounded-md my-5">
+      <div className="md:w-md bg-base-100   mx-auto border border-secondary/30 rounded-md my-5">
         <div className="p-5  space-y-5">
           {/* Title */}
           <div className="text-center">

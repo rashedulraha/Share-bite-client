@@ -26,7 +26,7 @@ const SocialsLink = [
 
 const Footer = () => {
   return (
-    <footer className="bg-base-100 text-base-content">
+    <footer className="bg-base-100 text-base-content border-t border-primary mt-10">
       <Container>
         {/* Main Footer */}
         <div className="py-8 md:py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -125,7 +125,7 @@ const Footer = () => {
         </div>
       </Container>
       {/* Bottom Bar */}
-      <div className="bg-base-200 py-6 border-t border-neutral">
+      <div className="py-6">
         <Container className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-center sm:text-left text-muted  ">
           <p className="text-center my-2">
             © {new Date().getFullYear()}{" "}
