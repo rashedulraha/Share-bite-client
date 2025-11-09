@@ -22,7 +22,6 @@ const Navbar = () => {
 
   const photoURL = user?.photoURL;
   const displayName = user?.displayName;
-  console.log(photoURL, displayName);
 
   const handleUserLogout = () => {
     signout().then(() => {

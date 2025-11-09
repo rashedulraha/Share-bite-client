@@ -6,12 +6,15 @@ import OurMission from "../Components/Ui/OurMission";
 import HeroSection from "../Components/Ui/HeroSection";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
-import { BarLoader } from "react-spinners";
+
 import AuthContext from "../Contaxt/AuthContext";
 import LoadingSpinner from "../Components/shared/LoadingSpinner";
+import useAxios from "../Hooks/useAxios";
+import FoodCard from "../Components/shared/FoodCard";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
+  const { foodCardData } = useAxios(`http://localhost:3000/popular-products`);
 
   if (loading) {
     return <LoadingSpinner />;
@@ -21,8 +24,11 @@ const Home = () => {
     <div>
       <HeroSection />
       <Container>
-        <h1>Home</h1>
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
+          {foodCardData?.map((data) => (
+            <FoodCard data={data} key={data._id} />
+          ))}
+        </div>
         <div className="flex items-center justify-center">
           <Link
             to={"/available-foods"}

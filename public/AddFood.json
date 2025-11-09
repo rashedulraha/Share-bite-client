@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Chicken Biryani",
+    "image": "https://i.pinimg.com/736x/e8/22/2d/e8222d9f595e651a1072b4f5c4209f6a.jpg",
+    "quantity": 12,
+    "pickup_location": "Golden Dragon Restaurant, 123 Main St, Downtown",
+    "expiry": "November 11, 2025",
+    "notes": "Freshly cooked, packed in airtight containers. Best for 2-3 people per portion.",
+    "donor": {
+      "name": "Rahim Ahmed",
+      "email": "rahim@goldendragon.com",
+      "photo": "https://i.pinimg.com/736x/f3/bc/e4/f3bce424dcb9307c610acb6508dd3b14.jpg",
+      "rating": 4.8
+    }
+  },
+  {
+    "name": "Vegetable Fried Rice",
+    "image": "https://i.pinimg.com/1200x/94/82/ab/9482ab2e248d249e7daa7fd6924c8d3b.jpg",
+    "quantity": 8,
+    "pickup_location": "Spice Garden, 45 Green Ave, Northside",
+    "expiry": "November 10, 2025",
+    "notes": "Mixed vegetables, light soy sauce, no MSG. Halal certified.",
+    "donor": {
+      "name": "Ayesha Khan",
+      "email": "ayesha@spicegarden.com",
+      "photo": "https://i.pinimg.com/736x/75/69/99/756999486679769ef65b73d8e76ba8bb.jpg",
+      "rating": 4.9
+    }
+  },
+  {
+    "name": "Beef Curry with Naan",
+    "image": "https://i.pinimg.com/1200x/69/fd/17/69fd17a8cefdc9e27b7a19f05017c6ac.jpg",
+    "quantity": 10,
+    "pickup_location": "Taj Mahal Kitchen, 78 Heritage Rd, Eastside",
+    "expiry": "November 11, 2025",
+    "notes": "Medium spicy, slow-cooked beef with homemade naan. Family recipe.",
+    "donor": {
+      "name": "Karim Hossain",
+      "email": "karim@tajmahal.com",
+      "photo": "https://i.pinimg.com/736x/ba/4e/eb/ba4eebd9ccc2de44e81e1cbd93673a92.jpg",
+      "rating": 4.7
+    }
+  },
+  {
+    "name": "Dal Tadka & Jeera Rice",
+    "image": "https://i.pinimg.com/736x/5e/c3/d5/5ec3d5924b27e4eaf0b5b84e2ba442e3.jpg",
+    "quantity": 15,
+    "pickup_location": "Punjabi Dhaba, 210 Old Market St",
+    "expiry": "November 10, 2025",
+    "notes": "Pure vegetarian, no onion/garlic option available. Packed separately.",
+    "donor": {
+      "name": "Priya Sharma",
+      "email": "priya@punjabidhaba.com",
+      "photo": "https://i.pinimg.com/736x/2c/e5/cf/2ce5cf48dee748f3a5730e6d88a64a8e.jpg",
+      "rating": 5.0
+    }
+  },
+  {
+    "name": "Grilled Fish with Lemon Butter",
+    "image": "https://i.pinimg.com/1200x/68/ad/f3/68adf33aeb71bba5462a666a85dd58fc.jpg",
+    "quantity": 6,
+    "pickup_location": "Sea Breeze Cafe, 55 Beach Rd",
+    "expiry": "November 10, 2025",
+    "notes": "Fresh catch, lightly seasoned. Keep refrigerated until pickup.",
+    "donor": {
+      "name": "Faruk Malik",
+      "email": "faruk@seabreeze.com",
+      "photo": "https://i.pinimg.com/736x/f2/c9/d1/f2c9d18d8d4dfbca53e6b8709d2a4e84.jpg",
+      "rating": 4.6
+    }
+  },
+  {
+    "name": "Pasta Alfredo",
+    "image": "https://i.pinimg.com/1200x/04/f4/9e/04f49ee67da37e9632d74daf3aa8b0e8.jpg",
+    "quantity": 9,
+    "pickup_location": "Bella Italia, 33 Park Lane",
+    "expiry": "November 11, 2025",
+    "notes": "Creamy white sauce, parmesan, mushrooms. Reheat gently.",
+    "donor": {
+      "name": "Sofia Rahman",
+      "email": "sofia@bella.com",
+      "photo": "https://i.pinimg.com/736x/68/0e/b6/680eb6003e223bca43cbdba92c6013c1.jpg",
+      "rating": 4.8
+    }
+  },
+  {
+    "name": "Mutton Korma",
+    "image": "https://i.pinimg.com/736x/42/f6/a1/42f6a125601fd31317d5388365c6d099.jpg",
+    "quantity": 7,
+    "pickup_location": "Royal Mughal, 100 Palace St",
+    "expiry": "November 12, 2025",
+    "notes": "Rich cashew gravy, tender mutton. Pairs well with rice or naan.",
+    "donor": {
+      "name": "Imran Siddiqui",
+      "email": "imran@royalmug.com",
+      "photo": "https://i.pinimg.com/736x/a2/f6/0d/a2f60d984f9efd7f35aae6a0b62779dd.jpg",
+      "rating": 4.9
+    }
+  },
+  {
+    "name": "Palak Paneer",
+    "image": "https://i.pinimg.com/1200x/3e/1b/4b/3e1b4b78272262ab623a89fcf2bbd300.jpg",
+    "quantity": 11,
+    "pickup_location": "Green Leaf Veg, 88 Garden Rd",
+    "expiry": "November 10, 2025",
+    "notes": "Fresh spinach, homemade paneer. Mildly spiced.",
+    "donor": {
+      "name": "Rina Das",
+      "email": "rina@greenleaf.com",
+      "photo": "https://i.pinimg.com/736x/e6/ae/bf/e6aebfd8fffe53aab15ea4927ec352ab.jpg",
+      "rating": 4.7
+    }
+  },
+  {
+    "name": "Sushi Platter",
+    "image": "https://i.pinimg.com/1200x/1b/2e/32/1b2e32c66fba887d99f80404c378f376.jpg",
+    "quantity": 20,
+    "pickup_location": "Tokyo Express, 15 Sushi Lane",
+    "expiry": "November 10, 2025",
+    "notes": "Assorted rolls, fresh salmon, tuna. Must be consumed same day.",
+    "donor": {
+      "name": "Hiroshi Tanaka",
+      "email": "hiroshi@tokyoexp.com",
+      "photo": "https://i.pinimg.com/736x/60/1a/24/601a2460ff8143e137d8ed022726815a.jpg",
+      "rating": 5.0
+    }
+  },
+  {
+    "name": "Butter Chicken",
+    "image": "https://i.pinimg.com/1200x/d5/a6/1f/d5a61f79bf14bf67a3d8e3fbf11f1835.jpg",
+    "quantity": 14,
+    "pickup_location": "Delhi Darbar, 200 Spice Market",
+    "expiry": "November 11, 2025",
+    "notes": "Creamy tomato gravy, tandoori chicken. Includes rice.",
+    "donor": {
+      "name": "Neha Kapoor",
+      "email": "neha@delhi.com",
+      "photo": "https://i.pinimg.com/1200x/c5/4f/c9/c54fc99a30a941f72d0fe40772b7c66c.jpg",
+      "rating": 4.8
+    }
+  },
+  {
+    "name": "Egg Fried Rice",
+    "image": "https://i.pinimg.com/1200x/2d/a2/6c/2da26c7ec707a738c2ae17182c26a032.jpg",
+    "quantity": 10,
+    "pickup_location": "Wok Star, 67 High St",
+    "expiry": "November 10, 2025",
+    "notes": "Scrambled eggs, spring onions, soy sauce. Vegetarian option available.",
+    "donor": {
+      "name": "Li Wei",
+      "email": "li@wokstar.com",
+      "photo": "https://i.pinimg.com/1200x/2d/2c/82/2d2c824b036bddf2fa7837a71b17c474.jpg",
+      "rating": 4.6
+    }
+  },
+  {
+    "name": "Chana Masala",
+    "image": "https://i.pinimg.com/1200x/f6/22/b3/f622b3b947ad43c9ce7232377554e9dd.jpg",
+    "quantity": 13,
+    "pickup_location": "Veggie Delight, 44 Pure Veg St",
+    "expiry": "November 11, 2025",
+    "notes": "Spicy chickpea curry, best with rice or roti.",
+    "donor": {
+      "name": "Anita Patel",
+      "email": "anita@veggie.com",
+      "photo": "https://i.pinimg.com/736x/56/1e/64/561e64e2f98b5aa7208b91c11fa95258.jpg",
+      "rating": 4.7
+    }
+  },
+  {
+    "name": "Pizza Margherita",
+    "image": "https://i.pinimg.com/1200x/f1/be/36/f1be366cc6cbf3f9cf29f5c25bb51ca4.jpg",
+    "quantity": 8,
+    "pickup_location": "Mama's Pizzeria, 99 Italian Corner",
+    "expiry": "November 10, 2025",
+    "notes": "Fresh mozzarella, basil, tomato sauce. Reheat in oven.",
+    "donor": {
+      "name": "Marco Rossi",
+      "email": "marco@mamas.com",
+      "photo": "https://i.pinimg.com/1200x/06/62/0b/06620b8b84fb3bd080e46fb77817ea9d.jpg",
+      "rating": 4.9
+    }
+  },
+  {
+    "name": "Aloo Gobi",
+    "image": "https://i.pinimg.com/1200x/7c/3f/a0/7c3fa071b637273f940c533d528a51bf.jpg",
+    "quantity": 16,
+    "pickup_location": "Home Kitchen, 12 Family Lane",
+    "expiry": "November 11, 2025",
+    "notes": "Homemade, mild spices. Perfect for kids.",
+    "donor": {
+      "name": "Fatima Begum",
+      "email": "fatima@home.com",
+      "photo": "https://i.pinimg.com/736x/41/da/b5/41dab5fdb7e1496abbe54d55cf5077a3.jpg",
+      "rating": 5.0
+    }
+  },
+  {
+    "name": "Pad Thai",
+    "image": "https://i.pinimg.com/1200x/98/c9/5d/98c95df876af9448fe3da03c0a9507cc.jpg",
+    "quantity": 9,
+    "pickup_location": "Thai Orchid, 30 Riverfront",
+    "expiry": "November 10, 2025",
+    "notes": "Shrimp or tofu option. Comes with peanuts and lime.",
+    "donor": {
+      "name": "Naree Srisuk",
+      "email": "naree@thaiorchid.com",
+      "photo": "https://i.pinimg.com/1200x/55/27/fe/5527fe09fe57ba43e5b4e5a0d6424f5b.jpg",
+      "rating": 4.8
+    }
+  },
+  {
+    "name": "Lentil Soup",
+    "image": "https://i.pinimg.com/1200x/d1/d8/1f/d1d81f0ceca2a1743f0cb5ba25376347.jpg",
+    "quantity": 20,
+    "pickup_location": "Community Kitchen, 50 Charity Rd",
+    "expiry": "November 12, 2025",
+    "notes": "Nutritious, vegan, high protein. Ideal for families.",
+    "donor": {
+      "name": "Sarah Johnson",
+      "email": "sarah@community.org",
+      "photo": "https://i.pinimg.com/736x/d1/5b/1f/d15b1fa254ad195c843031163ded4761.jpg",
+      "rating": 4.9
+    }
+  },
+  {
+    "name": "Tandoori Chicken",
+    "image": "https://i.pinimg.com/1200x/6c/87/b3/6c87b3eaa160d5f9f5a48f417ff07a5f.jpg",
+    "quantity": 11,
+    "pickup_location": "BBQ Nation, 77 Grill St",
+    "expiry": "November 11, 2025",
+    "notes": "Marinated overnight, smoky flavor. Bone-in pieces.",
+    "donor": {
+      "name": "Vikram Singh",
+      "email": "vikram@bbq.com",
+      "photo": "https://i.pinimg.com/1200x/82/b3/e7/82b3e7c135c295c65206d3361f11f66e.jpg",
+      "rating": 4.7
+    }
+  },
+  {
+    "name": "Masala Dosa",
+    "image": "https://i.pinimg.com/1200x/78/1c/68/781c6867d971c5fa7a704c992dc755c3.jpg",
+    "quantity": 18,
+    "pickup_location": "South Indian Cafe, 22 Temple Rd",
+    "expiry": "November 10, 2025",
+    "notes": "Crispy dosa with potato filling. Chutney included.",
+    "donor": {
+      "name": "Lakshmi Iyer",
+      "email": "lakshmi@south.com",
+      "photo": "https://i.pinimg.com/736x/d3/9f/5d/d39f5d5a2d58f2ee0ee2808188236926.jpg",
+      "rating": 5.0
+    }
+  },
+  {
+    "name": "Shawarma Wraps",
+    "image": "https://i.pinimg.com/736x/0b/9a/7d/0b9a7d19330a8c8e41e6795cf31dbeee.jpg",
+    "quantity": 15,
+    "pickup_location": "Arabian Nights, 90 Desert St",
+    "expiry": "November 11, 2025",
+    "notes": "Chicken shawarma with garlic sauce and pickles.",
+    "donor": {
+      "name": "Omar Farooq",
+      "email": "omar@arabian.com",
+      "photo": "https://i.pinimg.com/1200x/a4/ff/75/a4ff75d2182dae7aafc6b74550745425.jpg",
+      "rating": 4.8
+    }
+  },
+  {
+    "name": "Bread & Butter Pudding",
+    "image": "https://i.pinimg.com/1200x/84/30/60/84306080b05bcbb0a6ebccfe772213a2.jpg",
+    "quantity": 10,
+    "pickup_location": "Sweet Home Bakery, 11 Cozy Lane",
+    "expiry": "November 12, 2025",
+    "notes": "Warm, comforting dessert. Best served with custard.",
+    "donor": {
+      "name": "Emily Brown",
+      "email": "emily@sweethome.com",
+      "photo": "https://i.pinimg.com/1200x/72/0f/d4/720fd48d7b7600300f722c4553bfc30e.jpg",
+      "rating": 4.9
+    }
+  }
+]
