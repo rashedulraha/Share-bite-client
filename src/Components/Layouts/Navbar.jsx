@@ -18,36 +18,62 @@ const Navbar = () => {
     });
   };
 
+  const loginUser = (
+    <>
+      <div className="dropdown md:dropdown-end ">
+        <div tabIndex={0} role="button">
+          {user && (
+            <img
+              className="rounded-full border hover:bg-primary hover:text-white transition-all w-8 md:w-10 h-8 md:h-10 cursor-pointer"
+              src=""
+              alt="user Image"
+            />
+          )}
+        </div>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[9999] mt-5 md:mt-4 w-60 p-4 shadow-xl border border-base-300">
+          <h2>Hello element</h2>
+        </ul>
+      </div>
+    </>
+  );
+
   const MenuLink = (
     <>
       <div className="flex flex-col lg:flex-row items-center gap-4 md:gap-6 lg:gap-8 font-medium ">
         <NavLink
           to={"/"}
-          className="flex items-center gap-2 hover:text-primary transition-all">
+          className="flex items-center w-full md:w-fit text-start sm:text-center gap-2 hover:text-primary transition-all">
           <FaHome className="text-primary" />
           Home
         </NavLink>
         <NavLink
           to={"/available-foods"}
-          className="flex items-center gap-2 hover:text-primary transition-all">
+          className="flex items-center w-full  md:w-fit  text-start gap-2 hover:text-primary transition-all">
           <FaBoxOpen className="text-primary" />
           Available Foods
         </NavLink>
-
-        {user && (
-          <NavLink
-            to={"/add-food"}
-            className="flex items-center gap-2 hover:text-primary transition-all">
-            <IoIosAddCircle className="text-primary" />
-            Add Food
-          </NavLink>
-        )}
+        <NavLink
+          to={"/add-food"}
+          className="flex items-center w-full  lg:w-fit  text-start gap-2 hover:text-primary transition-all">
+          <IoIosAddCircle className="text-primary" />
+          Add Food
+        </NavLink>
+        <div className="flex items-start md:hidden bg-base-200 w-full p-2 rounded-full ">
+          <div className="flex space-x-3 items-center">
+            {loginUser}
+            <div>
+              <h1>Account</h1>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
 
   return (
-    <div className="bg-base-100/95 backdrop-blur-sm sticky top-0 z-50">
+    <div className="bg-base-100/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
       <Container>
         <div className="navbar ">
           {/* Logo */}
@@ -86,11 +112,16 @@ const Navbar = () => {
             {/* Theme toggle */}
             <ThemeToggle />
             {user ? (
-              <button
-                onClick={handleUserLogout}
-                className="btn btn-primary rounded-full px-6 shadow-md hover:shadow-lg transition-all">
-                Logout
-              </button>
+              <div className="flex items-center gap-5">
+                <div className="items-center justify-center hidden md:flex">
+                  {loginUser}
+                </div>
+                <button
+                  onClick={handleUserLogout}
+                  className="btn btn-primary rounded-full px-6 shadow-md hover:shadow-lg transition-all">
+                  Logout
+                </button>
+              </div>
             ) : (
               <Link
                 to="/login"

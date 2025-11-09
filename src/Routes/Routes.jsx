@@ -5,32 +5,27 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import Forgot from "../Pages/Forgot";
 import AvailableFoods from "../Pages/AvailableFoods";
+import AddFood from "../Pages/AddFood";
+import PrivetRoutes from "../Components/PrivetRoutes/PrivetRoutes";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
     children: [
+      { index: true, Component: Home },
+      { path: "/available-foods", Component: AvailableFoods },
       {
-        index: true,
-        Component: Home,
+        path: "/add-food",
+        element: (
+          <PrivetRoutes>
+            <AddFood />
+          </PrivetRoutes>
+        ),
       },
-      {
-        path: "/available-foods",
-        Component: AvailableFoods,
-      },
-      {
-        path: "register",
-        Component: Register,
-      },
-      {
-        path: "login",
-        Component: Login,
-      },
-      {
-        path: "forgot-password",
-        Component: Forgot,
-      },
+      { path: "register", Component: Register },
+      { path: "login", Component: Login },
+      { path: "forgot-password", Component: Forgot },
     ],
   },
 ]);

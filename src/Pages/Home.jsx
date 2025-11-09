@@ -8,16 +8,13 @@ import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import { BarLoader } from "react-spinners";
 import AuthContext from "../Contaxt/AuthContext";
+import LoadingSpinner from "../Components/shared/LoadingSpinner";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center  h-screen z-50 absolute top-0 inset-0 bg-base-200">
-        <BarLoader color="#0ea5e9" />
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (
