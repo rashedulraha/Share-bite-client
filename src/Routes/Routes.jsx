@@ -10,11 +10,13 @@ import PrivetRoutes from "../Components/PrivetRoutes/PrivetRoutes";
 import Profile from "../Pages/Profile";
 import MyRequests from "../Pages/MyRequests";
 import MyListings from "../Pages/MyListings";
+import NotFound from "../Pages/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
+    errorElement: <NotFound />,
     children: [
       { index: true, Component: Home },
       { path: "/available-foods", Component: AvailableFoods },
