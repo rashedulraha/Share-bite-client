@@ -37,11 +37,11 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="btn btn-primary btn-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group">
+              <button className="btn btn-primary btn-lg rounded-md shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group">
                 Start Sharing
                 <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="btn btn-outline btn-lg rounded-xl border-neutral hover:bg-primary hover:text-base-100 transition-all duration-300">
+              <button className="btn btn-outline btn-lg rounded-md border-neutral hover:bg-primary hover:text-base-100 transition-all duration-300">
                 Browse Foods
               </button>
             </div>

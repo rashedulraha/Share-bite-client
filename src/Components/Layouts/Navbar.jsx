@@ -18,7 +18,7 @@ const Navbar = () => {
           Home
         </NavLink>
         <NavLink
-          to={"/"}
+          to={"/available-foods"}
           className="flex items-center gap-2 hover:text-primary transition-all">
           <FaBoxOpen className="text-primary" />
           Available Foods
