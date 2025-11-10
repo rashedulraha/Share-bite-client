@@ -7,7 +7,9 @@ import {
   FaTimes,
   FaHandsHelping,
   FaListUl,
+  FaBookReader,
 } from "react-icons/fa";
+
 import { FaUser } from "react-icons/fa6";
 import { IoIosAddCircle } from "react-icons/io";
 import Container from "../Responsive/Container";
@@ -81,6 +83,12 @@ const Navbar = () => {
           Home
         </NavLink>
         <NavLink
+          to={"/about"}
+          className="flex items-center w-full  lg:w-fit  text-start gap-2 hover:text-primary transition-all">
+          <FaBookReader className="text-primary" />
+          About
+        </NavLink>
+        <NavLink
           to={"/available-foods"}
           className="flex items-center w-full  md:w-fit  text-start gap-2 hover:text-primary transition-all">
           <FaBoxOpen className="text-primary" />
@@ -92,6 +100,7 @@ const Navbar = () => {
           <IoIosAddCircle className="text-primary" />
           Add Food
         </NavLink>
+
         <div className="flex items-start md:hidden bg-base-200 w-full p-2 rounded-full ">
           <div className="flex space-x-3 items-center">
             {loginUser}

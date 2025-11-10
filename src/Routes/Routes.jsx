@@ -12,6 +12,7 @@ import MyRequests from "../Pages/MyRequests";
 import MyListings from "../Pages/MyListings";
 import NotFound from "../Pages/NotFound";
 import FoodDetails from "../Pages/FoodDetails";
+import About from "../Pages/About";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,7 @@ const router = createBrowserRouter([
       { path: "register", Component: Register },
       { path: "login", Component: Login },
       { path: "forgot-password", Component: Forgot },
+      { path: "about", Component: About },
     ],
   },
 ]);

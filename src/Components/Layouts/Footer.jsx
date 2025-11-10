@@ -2,14 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SiIfood } from "react-icons/si";
 import {
-  FaHeart,
   FaLeaf,
   FaBox,
   FaEnvelope,
   FaPhone,
   FaMapMarkerAlt,
   FaFacebook,
-  FaTwitter,
   FaInstagram,
   FaShieldAlt,
   FaTruck,

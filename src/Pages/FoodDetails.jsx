@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   FaMapMarkerAlt,
@@ -10,6 +10,9 @@ import {
   FaHeart,
   FaArrowLeft,
   FaShareAlt,
+  FaTimes,
+  FaCalendarAlt,
+  FaCommentDots,
 } from "react-icons/fa";
 import Container from "../Components/Responsive/Container";
 import useAxios from "../Hooks/useAxios";
@@ -18,6 +21,7 @@ import AuthContext from "../Contaxt/AuthContext";
 const FoodDetails = () => {
   const { loading } = useContext(AuthContext);
   const { id } = useParams();
+  const showModalRef = useRef();
   const { foodCardData } = useAxios(`http://localhost:3000/food-details/${id}`);
   const { name, image, quantity, pickup_location, expiry, notes } =
     foodCardData || {};
@@ -26,7 +30,6 @@ const FoodDetails = () => {
     email,
     photo,
     rating,
-    totalDonations,
     joined,
   } = foodCardData?.donor || {};
 
@@ -55,8 +58,17 @@ const FoodDetails = () => {
     return <LoadingSpinner />;
   }
 
+  const handleRequestModal = () => {
+    showModalRef.current.showModal();
+  };
+
+  const handleRequestFood = (e) => {
+    e.preventDefault();
+    console.log("click modal");
+  };
+
   return (
-    <section className="py-16 md:py-20 bg-base-100 min-h-screen">
+    <section className="py-16 md:py-10 bg-base-100 ">
       <Container>
         <div className="max-w-5xl mx-auto">
           {/* Back Button */}
@@ -173,7 +185,9 @@ const FoodDetails = () => {
 
               {/* Request Button */}
               <div className="flex gap-4">
-                <button className="btn btn-primary btn-lg rounded-full flex-1 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 group">
+                <button
+                  onClick={handleRequestModal}
+                  className="btn btn-primary btn-lg rounded-full flex-1 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 group">
                   Request Food
                   <FaShareAlt className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -184,6 +198,77 @@ const FoodDetails = () => {
             </div>
           </div>
         </div>
+
+        {/* Open the modal using document.getElementById('ID').showModal() method */}
+
+        <dialog
+          ref={showModalRef}
+          className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box bg-base-100 rounded-3xl shadow-2xl border border-neutral/20 max-w-md w-full">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-5 pb-3 border-b border-neutral/20">
+              <h3 className="text-xl font-bold text-base-content">
+                Request Food
+              </h3>
+              <form method="dialog">
+                <button className="btn btn-ghost btn-circle text-base-content/70 hover:text-error text-xl">
+                  ×
+                </button>
+              </form>
+            </div>
+
+            {/* Form Fields */}
+            <form className="space-y-5">
+              {/* Quantity */}
+              <div className="space-y-1">
+                <label className="label">
+                  <span className="label-text font-medium text-base-content">
+                    Quantity Requested
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g., 2 kg"
+                  className="input input-bordered w-full rounded-lg focus:border-primary"
+                />
+              </div>
+
+              {/* Pickup Date */}
+              <div className="space-y-1">
+                <label className="label">
+                  <span className="label-text font-medium text-base-content flex items-center gap-2">
+                    Preferred Pickup Date
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="mm/dd/yyyy"
+                  className="input input-bordered w-full rounded-lg focus:border-primary"
+                />
+              </div>
+
+              {/* Message */}
+              <div className="space-y-1">
+                <label className="label">
+                  <span className="label-text font-medium text-base-content flex items-center gap-2">
+                    Message to Donor Why Need
+                  </span>
+                </label>
+                <textarea
+                  rows="5"
+                  placeholder="Let them know why you're interested..."
+                  className="input input-bordered w-full rounded-lg focus:border-primary"
+                />
+              </div>
+              <button
+                onClick={handleRequestFood}
+                type="submit"
+                className="btn btn-success w-full rounded-full shadow-none transition-all duration-300">
+                Send Request
+              </button>
+            </form>
+          </div>
+        </dialog>
       </Container>
     </section>
   );

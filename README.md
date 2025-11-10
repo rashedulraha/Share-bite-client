@@ -1,16 +1,45 @@
-# React + Vite
+# SharePlate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Connect surplus food with people in need — one meal at a time.**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About
 
-## React Compiler
+ShareBite is a simple, fast, and free platform that helps reduce food waste and hunger.  
+Restaurants, individuals, and NGOs can list extra food, and anyone nearby can request it for pickup.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **List Food**: Donors post surplus food with location & expiry.
+- **Request Food**: Users browse and request nearby food.
+- **Pickup**: Collect fresh food — no waste, no hunger.
+- **Real-time**: Live updates, pickup in 30 mins avg.
+- **Dark Mode**: Clean UI with DaisyUI + Tailwind CSS.
+
+---
+
+## Tech Stack
+
+- **Frontend**: React, Tailwind CSS, DaisyUI
+- **Routing**: React Router
+- **Icons**: React Icons
+- **Animations**: AOS (Animate on Scroll)
+- **Toast**: react-toastify
+
+## How to Run
+
+```bash
+# Clone the repo
+
+# Go to project
+cd shareBite
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+```
