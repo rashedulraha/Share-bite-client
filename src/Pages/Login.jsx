@@ -7,9 +7,10 @@ import { SiIfood } from "react-icons/si";
 
 import { toast } from "react-toastify";
 import AuthContext from "../Context/AuthContext";
+import LoadingSpinner from "../Components/shared/LoadingSpinner";
 
 const Login = () => {
-  const { signinUser, WithGoogle, loading } = useContext(AuthContext);
+  const { user, signinUser, WithGoogle, loading } = useContext(AuthContext);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -32,6 +33,14 @@ const Login = () => {
       navigate("/");
     });
   };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+  if (user) {
+    return navigate("/");
+  }
+
   return (
     <Container>
       <div className="md:w-md bg-base-100 mx-auto border border-secondary/30 rounded-xl my-5 shadow-lg">
@@ -108,7 +117,7 @@ const Login = () => {
                 <span className="text-muted">Remember me</span>
               </label>
               <Link
-                to="/forgot-password"
+                to="/auth/forgot-password"
                 className="text-primary hover:underline font-medium">
                 Forgot Password?
               </Link>
@@ -166,7 +175,7 @@ const Login = () => {
           <div className="text-center text-xs">
             <span className="text-muted">Don't have an account? </span>
             <Link
-              to="/register"
+              to="/auth/register"
               className="text-primary hover:underline font-semibold">
               Register here
             </Link>

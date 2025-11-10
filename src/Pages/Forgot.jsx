@@ -1,11 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook, FaEnvelope } from "react-icons/fa";
 import Container from "../Components/Responsive/Container";
 import { SiIfood } from "react-icons/si";
+import AuthContext from "../Context/AuthContext";
+import LoadingSpinner from "../Components/shared/LoadingSpinner";
 
 const Forgot = () => {
+  const { user, loading } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (user) {
+    return navigate("/");
+  }
+
   return (
     <Container>
       <div className="md:w-md bg-base-100 mx-auto border border-secondary/30 rounded-xl my-5 shadow-lg">
@@ -82,7 +95,7 @@ const Forgot = () => {
           <div className="text-center text-xs">
             <span className="text-muted">Remember your password? </span>
             <Link
-              to="/login"
+              to="/auth/login"
               className="text-primary hover:underline font-semibold">
               Back to Login
             </Link>

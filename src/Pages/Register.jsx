@@ -7,9 +7,10 @@ import { SiIfood } from "react-icons/si";
 import { toast } from "react-toastify";
 import { EyeIcon } from "lucide-react";
 import AuthContext from "../Context/AuthContext";
+import LoadingSpinner from "../Components/shared/LoadingSpinner";
 
 const Register = () => {
-  const { Register, WithGoogle, loading } = useContext(AuthContext);
+  const { Register, WithGoogle, loading, user } = useContext(AuthContext);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -48,6 +49,14 @@ const Register = () => {
       setLoadingSpinner(false);
     });
   };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (user) {
+    return navigate("/");
+  }
 
   return (
     <Container>
@@ -164,11 +173,11 @@ const Register = () => {
           </form>
           {/* Links */}
           <div className="flex justify-between items-center text-xs">
-            <Link to="/login" className="text-primary hover:underline">
+            <Link to="/auth/login" className="text-primary hover:underline">
               Already have an account?
             </Link>
             <Link
-              to="/forgot-password"
+              to="/auth/forgot-password"
               className="text-primary hover:underline font-medium">
               Forgot Password?
             </Link>

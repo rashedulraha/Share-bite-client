@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../Components/Layouts/Layout";
+import MainLayout from "../Components/Layouts/MainLayout";
 import Home from "../Pages/Home";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
@@ -14,11 +14,12 @@ import FoodDetails from "../Pages/FoodDetails";
 import About from "../Pages/About";
 import DonorProfile from "../Pages/DonorProfile";
 import UserProfile from "../Pages/UserProfile";
+import AuthLayout from "../Components/Layouts/AuthLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: Layout,
+    Component: MainLayout,
     errorElement: <NotFound />,
     children: [
       { index: true, Component: Home },
@@ -63,11 +64,18 @@ const router = createBrowserRouter([
           </PrivetRoutes>
         ),
       },
-      { path: "register", Component: Register },
-      { path: "login", Component: Login },
-      { path: "forgot-password", Component: Forgot },
       { path: "about", Component: About },
       { path: "donor-profile/:id", Component: DonorProfile },
+    ],
+  },
+  {
+    path: "auth/",
+    Component: AuthLayout,
+    errorElement: <NotFound />,
+    children: [
+      { path: "/auth/register", Component: Register },
+      { path: "/auth/forgot-password", Component: Forgot },
+      { path: "/auth/login", Component: Login },
     ],
   },
 ]);

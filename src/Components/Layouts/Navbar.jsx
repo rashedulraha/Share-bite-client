@@ -16,7 +16,6 @@ import Container from "../Responsive/Container";
 import { SiIfood } from "react-icons/si";
 import ThemeToggle from "../Theme/ThemeToggle";
 import AuthContext from "../../Context/AuthContext";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
@@ -181,7 +180,7 @@ const Navbar = () => {
               </div>
             ) : (
               <Link
-                to="/login"
+                to="/auth/login"
                 className="btn btn-primary rounded-full px-6 shadow-md hover:shadow-lg transition-all">
                 Login
               </Link>

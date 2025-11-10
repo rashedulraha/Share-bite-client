@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Layout = () => {
+const MainLayout = () => {
   return (
     <>
       <div className="flex flex-col h-screen">
@@ -18,4 +18,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default MainLayout;
