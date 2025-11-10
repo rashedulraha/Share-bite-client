@@ -7,7 +7,7 @@ const AddFood = () => {
   const { loading } = useContext(AuthContext);
   return (
     <Container>
-      <div className="md:w-md bg-base-100 mx-auto border border-secondary/30 rounded-xl my-5 shadow-lg">
+      <div className="md:w-2xl bg-base-100 mx-auto border border-secondary/30 rounded-xl my-5 shadow-lg">
         <div className="p-6 md:p-8 space-y-6">
           {/* Title */}
           <div className="text-center">
@@ -29,24 +29,41 @@ const AddFood = () => {
 
           {/* Form */}
           <form className="space-y-5">
-            {/* Food Name */}
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-xs font-medium text-base-content mb-1">
-                Food Name
-              </label>
-              <input
-                name="name"
-                type="text"
-                required
-                className="input input-bordered w-full rounded-lg focus:border-primary"
-                placeholder="Enter food name"
-              />
+            <div className="flex flex-col md:flex-row  items-center justify-between gap-5 ">
+              {/* Food Name */}
+              <div className="w-full">
+                <label
+                  htmlFor="name"
+                  className="block text-xs font-medium text-base-content mb-1">
+                  Food Name
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  required
+                  className="input input-bordered w-full rounded-lg focus:border-primary"
+                  placeholder="Enter food name"
+                />
+              </div>
+              {/* Quantity */}
+              <div className="w-full">
+                <label
+                  htmlFor="quantity"
+                  className="block text-xs font-medium text-base-content mb-1">
+                  Quantity
+                </label>
+                <input
+                  name="quantity"
+                  type="number"
+                  required
+                  min="1"
+                  className="input input-bordered w-full rounded-lg focus:border-primary"
+                  placeholder="Enter available quantity"
+                />
+              </div>
             </div>
-
             {/* Image URL */}
-            <div>
+            <div className="w-full">
               <label
                 htmlFor="image"
                 className="block text-xs font-medium text-base-content mb-1">
@@ -60,53 +77,36 @@ const AddFood = () => {
                 placeholder="https://i.ibb.co/..."
               />
             </div>
-
-            {/* Quantity */}
-            <div>
-              <label
-                htmlFor="quantity"
-                className="block text-xs font-medium text-base-content mb-1">
-                Quantity
-              </label>
-              <input
-                name="quantity"
-                type="number"
-                required
-                min="1"
-                className="input input-bordered w-full rounded-lg focus:border-primary"
-                placeholder="Enter available quantity"
-              />
-            </div>
-
-            {/* Pickup Location */}
-            <div>
-              <label
-                htmlFor="pickup"
-                className="block text-xs font-medium text-base-content mb-1">
-                Pickup Location
-              </label>
-              <input
-                name="pickup"
-                type="text"
-                required
-                className="input input-bordered w-full rounded-lg focus:border-primary"
-                placeholder="Enter pickup location"
-              />
-            </div>
-
-            {/* Expiry Date */}
-            <div>
-              <label
-                htmlFor="expiry"
-                className="block text-xs font-medium text-base-content mb-1">
-                Expiry Date
-              </label>
-              <input
-                name="expiry"
-                type="date"
-                required
-                className="input input-bordered w-full rounded-lg focus:border-primary"
-              />
+            <div className="flex flex-col md:flex-row  items-center justify-between gap-5">
+              {/* Pickup Location */}
+              <div className="w-full">
+                <label
+                  htmlFor="pickup"
+                  className="block text-xs font-medium text-base-content mb-1">
+                  Pickup Location
+                </label>
+                <input
+                  name="pickup"
+                  type="text"
+                  required
+                  className="input input-bordered w-full rounded-lg focus:border-primary"
+                  placeholder="Enter pickup location"
+                />
+              </div>
+              {/* Expiry Date */}
+              <div className="w-full">
+                <label
+                  htmlFor="expiry"
+                  className="block text-xs font-medium text-base-content mb-1">
+                  Expiry Date
+                </label>
+                <input
+                  name="expiry"
+                  type="date"
+                  required
+                  className="input input-bordered w-full rounded-lg focus:border-primary"
+                />
+              </div>
             </div>
 
             {/* Notes */}
@@ -131,7 +131,7 @@ const AddFood = () => {
             ) : (
               <button
                 type="submit"
-                className="btn btn-primary w-full bg-gradient-to-r from-primary to-secondary text-base-100 border-none">
+                className="btn btn-primary w-full bg-gradient-to-r from-primary to-secondary text-base-100 border-none shadow-none">
                 Add Food
               </button>
             )}

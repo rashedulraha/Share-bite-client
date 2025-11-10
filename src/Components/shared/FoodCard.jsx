@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaClock,
   FaMapMarkerAlt,
@@ -6,30 +6,18 @@ import {
   FaHeart,
   FaShareAlt,
 } from "react-icons/fa";
+import { IoIosCheckmarkCircle } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const FoodCard = ({ data }) => {
-  const { image, name, notes, pickup_location, quantity, expiry } = data || {};
-  const { email, name: DonarName, photo, rating } = data.donor;
+  const { image, name, notes, pickup_location, quantity, expiry, _id } =
+    data || {};
+  const { name: DonarName, photo, rating } = data?.donor || {};
 
-  console.lo;
-  const food = {
-    name: "Chicken Biryani & Salad",
-    image:
-      "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    quantity: 12,
-    pickupLocation: "Golden Dragon Restaurant, 123 Dhaka Road, Mirpur",
-    expiry: "2025-04-10T18:30:00",
-    notes:
-      "Freshly cooked, packed in food-grade containers. Includes raita and salad.",
-    donor: {
-      name: "Rahim Khan",
-      email: "rahim@goldendragon.com",
-      photo:
-        "https://ui-avatars.com/api/?name=Rahim+Khan&background=22d3a6&color=fff&bold=true",
-      rating: 4.8,
-    },
+  const [heartIcons, setFaHeartIcons] = useState(false);
+  const toggleHeart = () => {
+    setFaHeartIcons(!heartIcons);
   };
-
   return (
     <div className="w-full">
       <div className="card bg-base-100  rounded-lg overflow-hidden border border-neutral/20 group">
@@ -63,9 +51,15 @@ const FoodCard = ({ data }) => {
               <FaMapMarkerAlt className="w-3.5 h-3.5 text-primary" />
               <span className="text-start">{pickup_location}</span>
             </div>
-            <div className="flex w-full items-start gap-1">
-              <FaClock className="w-3.5 h-3.5 text-secondary" />
-              <span className="text-start">{expiry}</span>
+            <div className="flex w-full items-start gap-1 justify-between">
+              <div className="flex gap-2">
+                <FaClock className="w-3.5 h-3.5 text-secondary" />
+                <span className="text-start">{expiry}</span>
+              </div>
+              <div className="flex gap-2">
+                <IoIosCheckmarkCircle className="w-3.5 h-3.5 text-primary" />
+                <span className="text-start text-green-500">Available</span>
+              </div>
             </div>
           </div>
 
@@ -91,13 +85,20 @@ const FoodCard = ({ data }) => {
 
           {/* Actions */}
           <div className="flex items-center justify-between pt-3 w-full gap-5">
-            <button className="btn flex-5 btn-primary btn-sm rounded-full px-6 shadow-md hover:shadow-lg transition-all flex items-center gap-2 group">
-              Request
-              <FaShareAlt className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <Link
+              to={`/details-page/${_id}`}
+              className="btn flex-5 btn-primary btn-sm rounded-full px-6 shadow-md hover:shadow-lg transition-all flex items-center gap-2 group">
+              View Details
+            </Link>
 
-            <button className="btn btn-ghost btn-sm rounded-full p-2 hover:bg-base-200 transition-all flex-1">
-              <FaHeart className="w-5 h-5 text-base-content/70 hover:text-error transition-colors" />
+            <button
+              onClick={toggleHeart}
+              className="btn btn-ghost btn-sm rounded-full p-2 hover:bg-base-200 transition-all flex-1">
+              <FaHeart
+                className={`w-5 h-5 text-base-content/70 ${
+                  heartIcons ? "text-error" : "text-outline"
+                } transition-colors`}
+              />
             </button>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AuthContext from "./AuthContext";
 import {
   createUserWithEmailAndPassword,
+  deleteUser,
   GoogleAuthProvider,
   onAuthStateChanged,
   sendEmailVerification,
@@ -39,6 +40,13 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  //!   delete user
+  const deleteUserAccount = async () => {
+    const userInfo = user;
+    const result = await deleteUser(auth, userInfo);
+
+    return result;
+  };
   //! Register and Login with Google
   const WithGoogle = async () => {
     try {
@@ -90,6 +98,7 @@ const AuthProvider = ({ children }) => {
     Register,
     signinUser,
     signout,
+    deleteUserAccount,
     WithGoogle,
     user,
     loading,

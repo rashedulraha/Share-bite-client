@@ -11,6 +11,7 @@ import Profile from "../Pages/Profile";
 import MyRequests from "../Pages/MyRequests";
 import MyListings from "../Pages/MyListings";
 import NotFound from "../Pages/NotFound";
+import FoodDetails from "../Pages/FoodDetails";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,14 @@ const router = createBrowserRouter([
         element: (
           <PrivetRoutes>
             <MyListings />
+          </PrivetRoutes>
+        ),
+      },
+      {
+        path: "/details-page/:id",
+        element: (
+          <PrivetRoutes>
+            <FoodDetails />
           </PrivetRoutes>
         ),
       },

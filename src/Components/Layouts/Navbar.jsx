@@ -35,14 +35,11 @@ const Navbar = () => {
         <div tabIndex={0} role="button">
           {user && (
             <div
-              className="md:tooltip md:tooltip-bottom"
+              className="md:tooltip md:tooltip-bottom flex items-center justify-center"
               data-tip={`${displayName}`}>
               <img
                 className="-full border hover:bg-primary hover:text-white transition-all w-8 md:w-10 h-8 md:h-10 cursor-pointer rounded-full"
-                src={
-                  photoURL ||
-                  `https://cdn-icons-png.freepik.com/512/219/219988.png`
-                }
+                src={photoURL}
                 alt="user Image"
               />
             </div>

@@ -7,7 +7,7 @@ import FoodCard from "../Components/shared/FoodCard";
 
 const AvailableFoods = () => {
   const { loading } = useContext(AuthContext);
-  const { foodCardData } = useAxios(`http://localhost:3000/all-products`);
+  const { foodCardData } = useAxios(`http://localhost:3000/all-food-data`);
   if (loading) {
     return <LoadingSpinner />;
   }
