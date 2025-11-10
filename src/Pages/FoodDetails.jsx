@@ -21,6 +21,7 @@ import AuthContext from "../Contaxt/AuthContext";
 
 const FoodDetails = () => {
   const { loading } = useContext(AuthContext);
+
   const { id } = useParams();
   const showModalRef = useRef();
   const { foodCardData } = useAxios(`http://localhost:3000/food-details/${id}`);
@@ -190,7 +191,6 @@ const FoodDetails = () => {
                   onClick={handleRequestModal}
                   className="btn btn-primary rounded-full shadow-none hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 group">
                   Request Food
-                  <FaShareAlt className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <Link
                   to={"/donor-profile"}

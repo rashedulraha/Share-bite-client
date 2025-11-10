@@ -28,7 +28,7 @@ const DonorProfile = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Left: Photo + Name */}
           <div className="md:col-span-1">
-            <div className="bg-base-200 rounded-3xl p-6 text-center border border-neutral/20">
+            <div className="bg-base-200 rounded-md p-6 text-center border border-neutral/20">
               <div className="avatar mb-4">
                 <div className="w-36 h-36 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 mx-auto">
                   <img src={donor.photo} alt={donor.name} />
@@ -59,7 +59,7 @@ const DonorProfile = () => {
 
           {/* Right: Info */}
           <div className="md:col-span-2 space-y-6">
-            <div className="bg-base-200 rounded-3xl p-6 border border-neutral/20">
+            <div className="bg-base-200 rounded-md p-6 border border-neutral/20">
               <h3 className="text-lg font-semibold text-base-content mb-4 flex items-center gap-2">
                 <FaUser className="w-5 h-5 text-primary" />
                 Contact Information
@@ -81,7 +81,7 @@ const DonorProfile = () => {
             </div>
 
             <div className="grid grid-cols-1 gap-4">
-              <div className="bg-base-200 rounded-2xl p-5 text-center border border-neutral/20">
+              <div className="bg-base-200 rounded-md p-5 text-center border border-neutral/20">
                 <FaHeart className="w-8 h-8 text-primary mx-auto mb-2" />
                 <p className="text-3xl font-bold text-base-content">
                   {donor.totalDonations}
@@ -90,7 +90,7 @@ const DonorProfile = () => {
               </div>
             </div>
 
-            <div className="bg-base-200 rounded-2xl p-5 border border-neutral/20 text-sm text-center">
+            <div className="bg-base-200 rounded-md p-5 border border-neutral/20 text-sm text-center">
               <p className="text-muted">
                 <strong>Time:</strong> November 10, 2025 02:02 PM +06 |{" "}
                 <strong>BD</strong>

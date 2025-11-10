@@ -109,14 +109,15 @@ const Footer = () => {
             <div className="space-y-3 text-muted">
               <p className="flex items-center gap-3">
                 <FaEnvelope className="w-4 h-4 text-primary" />{" "}
-                support@warmplate.org
+                support@sharebite.com
               </p>
               <p className="flex items-center gap-3">
-                <FaPhone className="w-4 h-4 text-primary" /> +880 96 789 1234
+                <FaPhone className="w-4 h-4 text-primary" />
+                01992-284845
               </p>
               <p className="flex items-center gap-3">
-                <FaMapMarkerAlt className="w-4 h-4 text-primary" /> 123 Food
-                Street, Dhaka, BD
+                <FaMapMarkerAlt className="w-4 h-4 text-primary" /> 123 Naogaon
+                dhaka Bangladesh
               </p>
             </div>
           </nav>
@@ -127,7 +128,7 @@ const Footer = () => {
         <Container className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-center sm:text-left text-muted  ">
           <p className="text-center my-2">
             © {new Date().getFullYear()}{" "}
-            <span className="font-bold text-primary">WarmPlate</span>. Crafted
+            <span className="font-bold text-primary">Share bite</span>. Crafted
             with <span className="text-accent">Love</span> for humanity.
           </p>
           <div className="flex flex-wrap justify-center gap-5">
