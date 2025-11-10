@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.init";
 import { toast } from "react-toastify";
@@ -40,13 +41,21 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  //!   delete user
+  //! delete user
   const deleteUserAccount = async () => {
-    const userInfo = user;
-    const result = await deleteUser(auth, userInfo);
-
-    return result;
+    try {
+      if (user) {
+        await deleteUser(user);
+        setUser(null);
+      }
+    } catch (error) {
+      toast.error(
+        "Failed to delete account. Please reauthenticate and try again.",
+        error.message
+      );
+    }
   };
+
   //! Register and Login with Google
   const WithGoogle = async () => {
     try {
@@ -83,6 +92,15 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  //! update user
+
+  const updateUserProfile = async (userInformation) => {
+    await updateProfile(user, userInformation);
+    const profileUpdate = auth?.currentUser;
+    setUser({ ...user, profileUpdate });
+    return true;
+  };
+
   //! Observer and get user data
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -100,6 +118,7 @@ const AuthProvider = ({ children }) => {
     signout,
     deleteUserAccount,
     WithGoogle,
+    updateUserProfile,
     user,
     loading,
   };
