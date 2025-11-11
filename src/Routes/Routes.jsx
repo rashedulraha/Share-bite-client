@@ -15,6 +15,8 @@ import About from "../Pages/About";
 import DonorProfile from "../Pages/DonorProfile";
 import UserProfile from "../Pages/UserProfile";
 import AuthLayout from "../Components/Layouts/AuthLayout";
+import ComingSoon from "../Pages/ComingSoon";
+import AuthNotFound from "../Pages/AuthNotFound";
 
 const router = createBrowserRouter([
   {
@@ -66,16 +68,22 @@ const router = createBrowserRouter([
       },
       { path: "about", Component: About },
       { path: "donor-profile/:id", Component: DonorProfile },
+      { path: "/team", Component: ComingSoon },
+      { path: "/careers", Component: ComingSoon },
+      { path: "/privacy", Component: ComingSoon },
+      { path: "/terms", Component: ComingSoon },
+      { path: "/cookies", Component: ComingSoon },
     ],
   },
   {
     path: "auth/",
     Component: AuthLayout,
-    errorElement: <NotFound />,
+    errorElement: <AuthNotFound />,
     children: [
-      { path: "/auth/register", Component: Register },
-      { path: "/auth/forgot-password", Component: Forgot },
-      { path: "/auth/login", Component: Login },
+      { path: "login", Component: Login },
+      { path: "register", Component: Register },
+      { path: "forgot-password", Component: Forgot },
+      { path: "*", Component: AuthNotFound },
     ],
   },
 ]);

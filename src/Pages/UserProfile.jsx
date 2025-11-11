@@ -32,7 +32,7 @@ const ProfilePage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         signout();
-        navigate("/login");
+        navigate("/auth/login");
         Swal.fire({
           title: "Logout successfully",
           text: "Your account has been logout.",
@@ -55,12 +55,12 @@ const ProfilePage = () => {
       if (result.isConfirmed) {
         deleteUserAccount().then(() => {
           signout();
-          navigate("/register");
+          navigate("/auth/register");
         });
 
         Swal.fire({
-          title: "Logout successfully",
-          text: "Your account has been logout.",
+          title: "Delete successfully",
+          text: "Your account has been delete.",
           icon: "success",
         });
       }
@@ -70,6 +70,7 @@ const ProfilePage = () => {
   const handleUpdateProfile = () => {
     updateProfileModal.current.showModal();
   };
+
   const handleUpdateProfileForm = (e) => {
     e.preventDefault();
 

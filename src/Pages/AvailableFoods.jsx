@@ -17,13 +17,15 @@ const AvailableFoods = () => {
     return <LoadingSpinner />;
   }
 
+  console.log(foodCardData?.length);
+
   const handleOnSearch = (term) => {
     setSearchTerm(term.toLowerCase());
   };
 
   const filterFood = foodCardData?.filter((food) => {
-    const search = searchTerm.toLowerCase();
-    return food.name.toLowerCase().includes(search);
+    const search = searchTerm?.toLowerCase();
+    return food.foodName?.toLowerCase().includes(search);
   });
 
   return (

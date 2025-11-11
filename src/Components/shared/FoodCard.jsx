@@ -10,7 +10,7 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const FoodCard = ({ data }) => {
-  const { image, name, notes, pickup_location, quantity, expiry, _id } =
+  const { image, foodName, notes, pickup_location, quantity, expiry, _id } =
     data || {};
   const { name: DonarName, photo, rating } = data?.donor || {};
 
@@ -25,7 +25,7 @@ const FoodCard = ({ data }) => {
         <div className="relative">
           <img
             src={image}
-            alt={name}
+            alt={foodName}
             className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
           />
 
@@ -39,7 +39,7 @@ const FoodCard = ({ data }) => {
         <div className="p-5 space-y-4">
           {/* Title */}
           <h3 className="text-lg font-bold text-base-content line-clamp-1">
-            {name}
+            {foodName}
           </h3>
 
           {/* Description */}
@@ -86,7 +86,7 @@ const FoodCard = ({ data }) => {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center justify-between pt-3 w-full gap-5">
+          <div className="flex items-center justify-between pt-3 w-full gap-3">
             <Link
               to={`/details-page/${_id}`}
               className="btn flex-5 btn-primary btn-sm rounded-full px-6 shadow-md hover:shadow-lg transition-all flex items-center gap-2 group">

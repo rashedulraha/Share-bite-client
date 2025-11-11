@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   FaHome,
   FaBoxOpen,
@@ -21,6 +21,7 @@ import Swal from "sweetalert2";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, signout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const photoURL = user?.photoURL;
   const displayName = user?.displayName;
@@ -36,7 +37,9 @@ const Navbar = () => {
       confirmButtonText: "Yes, Me logout",
     }).then((result) => {
       if (result.isConfirmed) {
-        signout();
+        signout().then(() => {
+          navigate("/auth/login");
+        });
         Swal.fire({
           title: "Logout successfully",
           text: "Your account has been logout.",

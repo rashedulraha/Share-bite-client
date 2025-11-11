@@ -2,10 +2,65 @@ import { SiIfood } from "react-icons/si";
 import Container from "../Components/Responsive/Container";
 import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const AddFood = () => {
   const { loading, user } = useContext(AuthContext);
-  const { displayName, photoURL, email } = user || {};
+  const { displayName, photoURL, email, phoneNumber, metadata } = user || {};
+
+  const handleAddFood = async (e) => {
+    e.preventDefault();
+    const foodName = e.target.foodName.value;
+    const image = e.target.image.value;
+    const quantity = e.target.quantity.value;
+    const pickup_location = e.target.pickup_location.value;
+    const expiry = e.target.expiry.value;
+    const notes = e.target.notes.value;
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photo = e.target.photo.value;
+    const phone = e.target.phone.value;
+    const location = e.target.location.value;
+
+    const imageAndDonarInfo = {
+      foodName,
+      image,
+      quantity,
+      pickup_location,
+      expiry,
+      notes,
+      donor: {
+        name,
+        email,
+        photo,
+        rating: `5`,
+        phone,
+        location,
+        joined: "Naogaon dhaka Bangladesh",
+        totalDonations: "56",
+      },
+    };
+
+    try {
+      const res = await fetch("http://localhost:3000/all-food-data", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(imageAndDonarInfo),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        toast.success("Food added!");
+        e.target.reset();
+      } else {
+        toast.error("Error: " + data.message);
+      }
+    } catch (error) {
+      toast.error("network error");
+    }
+  };
 
   return (
     <Container>
@@ -30,7 +85,7 @@ const AddFood = () => {
           </div>
 
           {/* Form */}
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleAddFood}>
             <div className="flex flex-col md:flex-row  items-center justify-between gap-5 ">
               {/* Food Name */}
               <div className="w-full">
@@ -40,9 +95,8 @@ const AddFood = () => {
                   Food Name
                 </label>
                 <input
-                  name="name"
+                  name="foodName"
                   type="text"
-                  required
                   className="input input-bordered w-full rounded-lg focus:border-primary"
                   placeholder="Enter food name"
                 />
@@ -57,7 +111,6 @@ const AddFood = () => {
                 <input
                   name="quantity"
                   type="number"
-                  required
                   min="1"
                   className="input input-bordered w-full rounded-lg focus:border-primary"
                   placeholder="Enter available quantity"
@@ -74,7 +127,6 @@ const AddFood = () => {
               <input
                 name="image"
                 type="url"
-                required
                 className="input input-bordered w-full rounded-lg focus:border-primary"
                 placeholder="https://i.ibb.co/..."
               />
@@ -83,14 +135,13 @@ const AddFood = () => {
               {/* Pickup Location */}
               <div className="w-full">
                 <label
-                  htmlFor="pickup"
+                  htmlFor="pickup_location"
                   className="block text-xs font-medium text-base-content mb-1">
                   Pickup Location
                 </label>
                 <input
-                  name="pickup"
+                  name="pickup_location"
                   type="text"
-                  required
                   className="input input-bordered w-full rounded-lg focus:border-primary"
                   placeholder="Enter pickup location"
                 />
@@ -105,7 +156,6 @@ const AddFood = () => {
                 <input
                   name="expiry"
                   type="date"
-                  required
                   className="input input-bordered w-full rounded-lg focus:border-primary"
                 />
               </div>
@@ -116,7 +166,7 @@ const AddFood = () => {
               <label
                 htmlFor="notes"
                 className="block text-xs font-medium text-base-content mb-1">
-                Notes (optional)
+                Notes
               </label>
               <textarea
                 name="notes"
@@ -136,7 +186,7 @@ const AddFood = () => {
                   Donator Name
                 </label>
                 <input
-                  name="donarName"
+                  name="name"
                   type="text"
                   required
                   className="input input-bordered w-full rounded-lg focus:border-primary"
@@ -161,6 +211,40 @@ const AddFood = () => {
                 />
               </div>
             </div>
+            <div className="flex flex-col md:flex-row  items-center justify-between gap-5">
+              {/* donar Phone */}
+              <div className="w-full">
+                <label
+                  htmlFor="phone"
+                  className="block text-xs font-medium text-base-content mb-1">
+                  Donator phone number
+                </label>
+                <input
+                  name="phone"
+                  type="text"
+                  required
+                  className="input input-bordered w-full rounded-lg focus:border-primary"
+                  defaultValue={phoneNumber || `01992**4845`}
+                  readOnly
+                />
+              </div>
+              {/* Donar Creation date  */}
+              <div className="w-full">
+                <label
+                  htmlFor="metadata"
+                  className="block text-xs font-medium text-base-content mb-1">
+                  Metadata
+                </label>
+                <input
+                  name="location"
+                  type="email"
+                  defaultValue={metadata.creationTime}
+                  readOnly
+                  required
+                  className="input input-bordered w-full rounded-lg focus:border-primary"
+                />
+              </div>
+            </div>
             {/* donar image */}
             <div className="w-full">
               <label
@@ -169,7 +253,7 @@ const AddFood = () => {
                 Donator Image URL
               </label>
               <input
-                name="donarImage"
+                name="photo"
                 type="url"
                 required
                 readOnly

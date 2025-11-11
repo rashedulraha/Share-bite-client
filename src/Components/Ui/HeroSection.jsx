@@ -2,6 +2,7 @@ import React from "react";
 import { FaUtensils, FaArrowRight } from "react-icons/fa";
 import Container from "../Responsive/Container";
 import UserInfoCarouselCard from "../shared/UserInfoCarouselCard";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -38,13 +39,17 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="btn btn-primary btn-lg rounded-md shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group">
+              <Link
+                to={"/add-food"}
+                className="btn btn-primary btn-lg rounded-md shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group">
                 Start Sharing
                 <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="btn btn-outline btn-lg rounded-md border-neutral hover:bg-primary hover:text-base-100 transition-all duration-300">
+              </Link>
+              <Link
+                to={"/available-foods"}
+                className="btn btn-outline btn-lg rounded-md border-neutral hover:bg-primary hover:text-base-100 transition-all duration-300">
                 Browse Foods
-              </button>
+              </Link>
             </div>
 
             {/* Trust Indicators */}

@@ -6,9 +6,10 @@ import Container from "../Components/Responsive/Container";
 import { SiIfood } from "react-icons/si";
 import AuthContext from "../Context/AuthContext";
 import LoadingSpinner from "../Components/shared/LoadingSpinner";
+import { toast } from "react-toastify";
 
 const Forgot = () => {
-  const { user, loading } = useContext(AuthContext);
+  const { user, loading, resetPassword } = useContext(AuthContext);
   const navigate = useNavigate();
 
   if (loading) {
@@ -18,6 +19,24 @@ const Forgot = () => {
   if (user) {
     return navigate("/");
   }
+
+  const handleResetPassword = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+
+    const newTab = window.open("about:blank");
+
+    resetPassword(email)
+      .then(() => {
+        toast.success("Check your email inbox for reset link");
+
+        newTab.location.href = "https://mail.google.com/mail/u/0/#inbox";
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        newTab.close();
+      });
+  };
 
   return (
     <Container>
@@ -45,18 +64,20 @@ const Forgot = () => {
 
           {/* Email Field */}
           <div>
-            <label
-              htmlFor="email"
-              className="block text-xs font-medium text-base-content mb-1 flex items-center gap-2">
-              <FaEnvelope className="w-4 h-4 text-primary" />
-              Email Address
-            </label>
-            <input
-              id="email"
-              type="email"
-              className="input input-bordered input-md w-full rounded-lg focus:border-primary transition-all"
-              placeholder="you@example.com"
-            />
+            <form onSubmit={handleResetPassword}>
+              <label
+                htmlFor="email"
+                className="block text-xs font-medium text-base-content mb-1 flex items-center gap-2">
+                <FaEnvelope className="w-4 h-4 text-primary" />
+                Email Address
+              </label>
+              <input
+                name="email"
+                type="email"
+                className="input input-bordered input-md w-full rounded-lg focus:border-primary transition-all"
+                placeholder="you@example.com"
+              />
+            </form>
           </div>
 
           {/* Info Text */}
