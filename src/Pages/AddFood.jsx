@@ -97,6 +97,7 @@ const AddFood = () => {
                 <input
                   name="foodName"
                   type="text"
+                  required
                   className="input input-bordered w-full rounded-lg focus:border-primary"
                   placeholder="Enter food name"
                 />
@@ -112,6 +113,7 @@ const AddFood = () => {
                   name="quantity"
                   type="number"
                   min="1"
+                  required
                   className="input input-bordered w-full rounded-lg focus:border-primary"
                   placeholder="Enter available quantity"
                 />
@@ -127,6 +129,7 @@ const AddFood = () => {
               <input
                 name="image"
                 type="url"
+                required
                 className="input input-bordered w-full rounded-lg focus:border-primary"
                 placeholder="https://i.ibb.co/..."
               />
@@ -171,6 +174,7 @@ const AddFood = () => {
               <textarea
                 name="notes"
                 rows="3"
+                required
                 className="textarea textarea-bordered w-full rounded-lg focus:border-primary"
                 placeholder="Any special instructions or details..."></textarea>
             </div>

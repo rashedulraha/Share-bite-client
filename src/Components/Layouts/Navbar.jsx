@@ -86,6 +86,11 @@ const Navbar = () => {
             <FaListUl className="text-primary" />
             My Listings
           </Link>
+          <button
+            onClick={handleUserLogout}
+            className="btn btn-primary rounded-full shadow-none">
+            Logout
+          </button>
         </ul>
       </div>
     </>
@@ -118,15 +123,22 @@ const Navbar = () => {
           <IoIosAddCircle className="text-primary" />
           Add Food
         </NavLink>
-
-        <div className="flex items-start md:hidden bg-base-200 w-full p-2 rounded-full ">
-          <div className="flex space-x-3 items-center">
-            {loginUser}
-            <div>
-              <h1>Account</h1>
+        {user && (
+          <div className="flex items-start md:hidden bg-base-200 w-full p-2 rounded-full ">
+            <div className="flex space-x-3 items-center">
+              <div>
+                <Link className="flex items-center gap-3 " to={"/user-profile"}>
+                  <img
+                    className="-full border hover:bg-primary hover:text-white transition-all w-8 md:w-10 h-8 md:h-10 cursor-pointer rounded-full"
+                    src={photoURL}
+                    alt="user Image"
+                  />{" "}
+                  Account
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );
@@ -175,11 +187,6 @@ const Navbar = () => {
                 <div className="items-center justify-center hidden md:flex">
                   {loginUser}
                 </div>
-                <button
-                  onClick={handleUserLogout}
-                  className="btn btn-primary rounded-full px-6 shadow-md hover:shadow-lg transition-all">
-                  Logout
-                </button>
               </div>
             ) : (
               <Link

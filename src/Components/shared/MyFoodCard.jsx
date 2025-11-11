@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { FaClock, FaEdit, FaMapMarkerAlt, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 import Container from "../Responsive/Container";
+import Swal from "sweetalert2";
 
 const MyFoodCard = ({ foods }) => {
   const { image, foodName, notes, pickup_location, quantity, expiry, _id } =
@@ -11,10 +12,30 @@ const MyFoodCard = ({ foods }) => {
   const [loading, setLoading] = useState(false);
 
   const handleDeleteFood = (id) => {
-    fetch(`http://localhost:3000/delete-food-data/${id}`, {
-      method: "DELETE",
-    }).then(() => {
-      toast.success("successfully delete data");
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#22d3a6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Me logout",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/delete-food-data/${id}`, {
+          method: "DELETE",
+        })
+          .then(() => {
+            Swal.fire({
+              title: "Delete successfully",
+              text: "Your account has been delete.",
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            toast.error("network error");
+          });
+      }
     });
   };
 
@@ -22,8 +43,32 @@ const MyFoodCard = ({ foods }) => {
     handleOpenModal.current.showModal();
   };
 
-  const handleUpdateData = () => {
-    console.log("hello");
+  const handleUpdateData = (e) => {
+    const foodName = e.target.foodName.value;
+    const image = e.target.image.value;
+    const quantity = e.target.quantity.value;
+    const pickup_location = e.target.pickup_location.value;
+    const expiry = e.target.expiry.value;
+    const notes = e.target.notes.value;
+
+    const update = {
+      foodName,
+      image,
+      quantity,
+      pickup_location,
+      expiry,
+      notes,
+    };
+
+    fetch(`http://localhost:3000/update-food/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(update),
+    }).then(() => {
+      toast.success("data update successfully");
+    });
   };
 
   return (
@@ -105,7 +150,7 @@ const MyFoodCard = ({ foods }) => {
                 className="space-y-5  "
                 onSubmit={handleUpdateData}>
                 <div className="flex flex-row items-center justify-between gap-5  ">
-                  <div className="w-full">
+                  <div className="flex-3">
                     <label
                       htmlFor="name"
                       className="block text-xs font-medium text-base-content mb-1">
@@ -114,12 +159,13 @@ const MyFoodCard = ({ foods }) => {
                     <input
                       name="foodName"
                       type="text"
+                      defaultValue={foodName}
                       className="input input-bordered w-full rounded-lg focus:border-primary"
-                      placeholder="Enter food name"
+                      placeholder="Enter food name "
                     />
                   </div>
 
-                  <div className="w-full">
+                  <div className="flex-1">
                     <label
                       htmlFor="quantity"
                       className="block text-xs font-medium text-base-content mb-1">
@@ -127,10 +173,11 @@ const MyFoodCard = ({ foods }) => {
                     </label>
                     <input
                       name="quantity"
+                      defaultValue={quantity}
                       type="number"
                       min="1"
                       className="input input-bordered w-full rounded-lg focus:border-primary"
-                      placeholder="Enter available quantity"
+                      placeholder="Enter available quantity "
                     />
                   </div>
                 </div>
@@ -145,6 +192,7 @@ const MyFoodCard = ({ foods }) => {
                   <input
                     name="image"
                     type="url"
+                    defaultValue={image}
                     className="input input-bordered w-full rounded-lg focus:border-primary"
                     placeholder="https://i.ibb.co/..."
                   />
@@ -160,6 +208,7 @@ const MyFoodCard = ({ foods }) => {
                     <input
                       name="pickup_location"
                       type="text"
+                      defaultValue={pickup_location}
                       className="input input-bordered w-full rounded-lg focus:border-primary"
                       placeholder="Enter pickup location"
                     />
@@ -174,6 +223,7 @@ const MyFoodCard = ({ foods }) => {
                     <input
                       name="expiry"
                       type="date"
+                      defaultValue={expiry}
                       className="input input-bordered w-full rounded-lg focus:border-primary"
                     />
                   </div>
@@ -189,7 +239,8 @@ const MyFoodCard = ({ foods }) => {
                   <textarea
                     name="notes"
                     rows="3"
-                    className="textarea textarea-bordered w-full rounded-lg focus:border-primary"
+                    defaultValue={notes}
+                    className="textarea textarea-bordered w-full rounded-lg focus:border-primary resize-none"
                     placeholder="Any special instructions or details..."></textarea>
                 </div>
                 {loading ? (
