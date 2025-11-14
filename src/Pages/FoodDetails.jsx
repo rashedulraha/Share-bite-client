@@ -84,7 +84,7 @@ const FoodDetails = () => {
     };
 
     try {
-      fetch(`http://localhost:3000/food-requests`, {
+      fetch(`https://share-bite-backend.vercel.app/food-requests`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

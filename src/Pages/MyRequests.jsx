@@ -16,7 +16,9 @@ const MyRequests = () => {
 
     const fetchRequests = async () => {
       try {
-        fetch(`http://localhost:3000/food-requests?email=${user.email}`)
+        fetch(
+          `https://share-bite-backend.vercel.app/food-requests?email=${user.email}`
+        )
           .then((res) => res.json())
           .then((resultData) => setMyRequests(resultData));
       } catch (error) {
