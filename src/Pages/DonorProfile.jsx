@@ -19,7 +19,7 @@ const DonorProfile = () => {
   const { loading } = useContext(AuthContext);
 
   const { foodCardData } = useAxios(
-    `http://localhost:3000/donar-profile/${id}`
+    `https://share-bite-backend.vercel.app/donar-profile/${id}`
   );
 
   const {
