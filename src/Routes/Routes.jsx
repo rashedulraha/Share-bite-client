@@ -82,7 +82,7 @@ const router = createBrowserRouter([
     children: [
       { path: "login", Component: Login },
       { path: "register", Component: Register },
-      // { path: "forgot-password", Component: Forgot },
+      { path: "forgot-password", Component: Forgot },
       { path: "*", Component: AuthNotFound },
     ],
   },
