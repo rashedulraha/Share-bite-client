@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
       );
 
       const user = userInformation.user;
-      // await sendEmailVerification(user);
+      await sendEmailVerification(user);
       return user;
     } catch (error) {
       toast.error("Registration failed");

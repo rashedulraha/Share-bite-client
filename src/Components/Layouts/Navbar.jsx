@@ -1,22 +1,14 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import {
-  FaHome,
-  FaBoxOpen,
-  FaBars,
-  FaTimes,
-  FaHandsHelping,
-  FaListUl,
-  FaBookReader,
-} from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-import { FaUser } from "react-icons/fa6";
-import { IoIosAddCircle } from "react-icons/io";
 import Container from "../Responsive/Container";
 import { SiIfood } from "react-icons/si";
 import ThemeToggle from "../Theme/ThemeToggle";
 import AuthContext from "../../Context/AuthContext";
 import Swal from "sweetalert2";
+import Menu from "../shared/Menu";
+import LinkMenu from "../shared/LinkMenu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -67,32 +59,12 @@ const Navbar = () => {
         </div>
         <ul
           tabIndex={0}
-          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[9999] mt-5 md:mt-4 w-60 p-3 border border-base-300 space-y-3">
-          <Link
-            to={"/user-profile"}
-            className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-colors rounded-lg py-1  px-2">
-            <FaUser className="text-primary" />
-            Profile
-          </Link>
-          <Link
-            to={"/my-request"}
-            className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-colors rounded-lg py-1  px-2">
-            <FaHandsHelping className="text-primary" />
-            My Requests
-          </Link>
-          <Link
-            to={"/my-listings"}
-            className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-colors rounded-lg py-1  px-2">
-            <FaListUl className="text-primary" />
-            My Listings
-          </Link>
+          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-9999 mt-5 md:mt-4 w-60 p-3 border border-base-300 space-y-3">
+          <LinkMenu to={"user-profile"} label={"profile"} />
+          <LinkMenu to={"my-request"} label={"My Requests"} />
+          <LinkMenu to={"my-listings"} label={"My Listings"} />
+          <LinkMenu to={"add-food"} label={"Add Food"} />
 
-          <Link
-            to={"/add-food"}
-            className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-colors rounded-lg py-1  px-2">
-            <IoIosAddCircle className="text-primary" />
-            Add Food
-          </Link>
           <button
             onClick={handleUserLogout}
             className=" px-3 py-2 btn-primary rounded-full bg-primary shadow-none cursor-pointer">
@@ -106,24 +78,9 @@ const Navbar = () => {
   const MenuLink = (
     <>
       <div className="flex flex-col lg:flex-row items-center gap-4 md:gap-6 lg:gap-8 font-medium ">
-        <NavLink
-          to={"/"}
-          className="flex items-center w-full md:w-fit text-start sm:text-center gap-2 hover:text-primary transition-all">
-          <FaHome className="text-primary" />
-          Home
-        </NavLink>
-        <NavLink
-          to={"/about"}
-          className="flex items-center w-full  lg:w-fit  text-start gap-2 hover:text-primary transition-all">
-          <FaBookReader className="text-primary" />
-          About
-        </NavLink>
-        <NavLink
-          to={"/available-foods"}
-          className="flex items-center w-full  md:w-fit  text-start gap-2 hover:text-primary transition-all">
-          <FaBoxOpen className="text-primary" />
-          Available Foods
-        </NavLink>
+        <Menu to={""} label={"Home"} />
+        <Menu to={"about"} label={"About"} />
+        <Menu to={"available-foods"} label={"Available Foods"} />
       </div>
     </>
   );
@@ -131,7 +88,7 @@ const Navbar = () => {
   return (
     <div className="bg-base-100/95 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
       <Container>
-        <div className="navbar ">
+        <div className="navbar">
           {/* Logo */}
           <div className="navbar-start">
             <div className="dropdown">
@@ -143,7 +100,7 @@ const Navbar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[9999] mt-3 w-64 p-4 shadow-xl border border-base-300">
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-9999 mt-3 w-64 p-4 shadow-xl border border-base-300">
                 {MenuLink}
               </ul>
             </div>
